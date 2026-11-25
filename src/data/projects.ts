@@ -33,6 +33,9 @@ export type Project = {
   accent: string; // css color
   accentInk: "light" | "dark"; // text color on accent
   cover: string;
+  logo: string; // image path, or a key of the vector marks in components/Logos.tsx
+  logoBg: string; // card background behind the logo
+  logoInk: "light" | "dark";
   coverFit?: "cover" | "contain";
   span: string; // tailwind grid span classes (desktop)
   items: MediaItem[];
@@ -43,6 +46,9 @@ type Meta = Omit<Project, "items" | "cover"> & { cover: string; order?: string[]
 const meta: Meta[] = [
   {
     slug: "bugtongs",
+    logo: "/logos/bugtongs.webp",
+    logoBg: "#121212",
+    logoInk: "light",
     title: "Bugtong's Inasal & Restobar",
     client: "Bugtong's — Hinigaran Branch",
     categories: ["Social Media", "Branding"],
@@ -55,6 +61,9 @@ const meta: Meta[] = [
   },
   {
     slug: "alon-brew",
+    logo: "/logos/alon-brew.webp",
+    logoBg: "#1a1a1a",
+    logoInk: "light",
     title: "Alon Brew",
     client: "Coffee shop identity",
     categories: ["Branding"],
@@ -64,10 +73,13 @@ const meta: Meta[] = [
     accentInk: "light",
     cover: "4.webp",
     span: "md:col-span-2 md:row-span-2",
-    order: ["4.webp", "group-19.webp", "alonbrewlogoanim.mp4", "3.webp", "1.webp", "5.webp", "8.webp", "test3-1.webp", "group-4.webp", "frame-1.webp", "frame-2.webp"],
+    order: ["8.webp", "4.webp", "group-19.webp", "alonbrewlogoanim.mp4", "3.webp", "1.webp", "5.webp", "test3-1.webp", "group-4.webp", "frame-1.webp", "frame-2.webp"],
   },
   {
     slug: "natures-blend",
+    logo: "natures-blend",
+    logoBg: "#183a31",
+    logoInk: "light",
     title: "Nature's Blend",
     client: "Organic coffee brand",
     categories: ["Branding"],
@@ -75,12 +87,15 @@ const meta: Meta[] = [
       "A fine-line emblem merging leaves, a coffee bean and a handmade mug. From concept sketch to final mark, variants and real-world mockups.",
     accent: "var(--color-ocean)",
     accentInk: "dark",
-    cover: "final-logo.webp",
+    cover: "mockups-1.webp",
     span: "md:row-span-2",
     order: ["final-logo.webp", "concept.webp", "logo.webp", "logo-variations.webp", "mockups.webp", "mockups-1.webp"],
   },
   {
     slug: "nom",
+    logo: "/logos/nom.webp",
+    logoBg: "#ff6665",
+    logoInk: "dark",
     title: "NOM Chowing Station",
     client: "Fried chicken takeout",
     categories: ["Branding"],
@@ -93,6 +108,9 @@ const meta: Meta[] = [
   },
   {
     slug: "hiraya",
+    logo: "/logos/hiraya.webp",
+    logoBg: "#111111",
+    logoInk: "light",
     title: "Hiraya's Grill",
     client: "Grill restaurant",
     categories: ["Branding", "Social Media"],
@@ -106,6 +124,9 @@ const meta: Meta[] = [
   },
   {
     slug: "pamper-labs",
+    logo: "pamper-labs",
+    logoBg: "#2a0d4a",
+    logoInk: "light",
     title: "Pamper Lab",
     client: "Nail, lash & brow bar",
     categories: ["Social Media", "Posters"],
@@ -118,6 +139,9 @@ const meta: Meta[] = [
   },
   {
     slug: "print-designs",
+    logo: "print-designs",
+    logoBg: "#ffffff",
+    logoInk: "dark",
     title: "Hidden Gems of Local History",
     client: "Editorial / magazine layout",
     categories: ["Print & Editorial"],
@@ -131,6 +155,9 @@ const meta: Meta[] = [
   },
   {
     slug: "promotional-posters",
+    logo: "promotional-posters",
+    logoBg: "#54478c",
+    logoInk: "light",
     title: "Promotional Posters",
     client: "Events, automotive & fan art",
     categories: ["Posters"],
@@ -144,6 +171,9 @@ const meta: Meta[] = [
   },
   {
     slug: "tshirt-designs",
+    logo: "tshirt-designs",
+    logoBg: "#16203a",
+    logoInk: "light",
     title: "Streetwear Graphics",
     client: "T-shirt back prints",
     categories: ["Apparel"],
@@ -156,6 +186,9 @@ const meta: Meta[] = [
   },
   {
     slug: "personal-designed-logos",
+    logo: "/logos/catcam.webp",
+    logoBg: "#111111",
+    logoInk: "light",
     title: "Logo Collection",
     client: "Personal & concept marks",
     categories: ["Branding"],
@@ -170,6 +203,9 @@ const meta: Meta[] = [
   },
   {
     slug: "pior",
+    logo: "/logos/pior.webp",
+    logoBg: "#ffffff",
+    logoInk: "dark",
     title: "PIOR Athletics",
     client: "Sportswear",
     categories: ["Branding"],
@@ -181,6 +217,9 @@ const meta: Meta[] = [
   },
   {
     slug: "livable",
+    logo: "/logos/livable.webp",
+    logoBg: "#e8893a",
+    logoInk: "light",
     title: "Livable",
     client: "Home & living brand",
     categories: ["Branding"],

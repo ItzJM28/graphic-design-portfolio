@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Manrope } from "next/font/google";
+import { Bebas_Neue, Bricolage_Grotesque, Manrope, Marcellus, Yellowtail } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -13,6 +13,10 @@ const body = Manrope({
   subsets: ["latin"],
 });
 
+const marcellus = Marcellus({ variable: "--font-marcellus", subsets: ["latin"], weight: "400" });
+const yellowtail = Yellowtail({ variable: "--font-yellowtail", subsets: ["latin"], weight: "400" });
+const bebas = Bebas_Neue({ variable: "--font-bebas", subsets: ["latin"], weight: "400" });
+
 export const metadata: Metadata = {
   title: `${site.name} — ${site.role}`,
   description: site.tagline,
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} antialiased`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${marcellus.variable} ${yellowtail.variable} ${bebas.variable} antialiased`}>
       <body className="grain min-h-screen">{children}</body>
     </html>
   );

@@ -6,6 +6,7 @@ import { useState, type MouseEvent } from "react";
 import { categories, projects, type Category, type Project } from "@/data/projects";
 import { SectionHeading } from "./Tile";
 import { ProjectModal } from "./ProjectModal";
+import { ProjectLogo } from "./Logos";
 
 function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
   function track(e: MouseEvent<HTMLButtonElement>) {
@@ -22,6 +23,9 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
     e.currentTarget.style.setProperty("--ry", "0deg");
   }
   const contain = p.coverFit === "contain";
+  const dark = p.logoInk === "dark";
+  // short wide cards: logo on the right, text on the left
+  const wide = p.span.includes("col-span-2") && !p.span.includes("row-span-2");
   return (
     <motion.div
       layout
@@ -37,35 +41,46 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
         onMouseMove={track}
         onMouseLeave={reset}
         className="spotlight group block h-full w-full overflow-hidden rounded-[28px] text-left outline-none ring-banana transition-[transform,box-shadow] duration-300 ease-out [transform:rotateX(var(--rx,0))_rotateY(var(--ry,0))] hover:shadow-2xl hover:shadow-black/50 focus-visible:ring-4"
-        style={{ background: p.accent }}
+        style={{ background: p.logoBg }}
         aria-label={`Open ${p.title}`}
       >
-        <div className={`absolute inset-0 ${contain ? "p-8" : ""}`}>
-          <div className="relative h-full w-full">
-            <Image
-              src={p.cover}
-              alt={p.title}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className={`${contain ? "object-contain" : "object-cover"} transition-transform duration-[900ms] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.07]`}
-            />
+        {/* Brand logo on its own background */}
+        <div
+          className={`absolute flex items-center justify-center transition-all ${
+            wide ? "inset-y-0 left-[48%] right-0 p-7 pr-8" : "inset-x-0 top-0 bottom-[112px] px-[8%] pt-8"
+          }`}
+        >
+          <div className="flex h-full w-full items-center justify-center transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-90 group-hover:opacity-0">
+            <ProjectLogo project={p} sizes="(min-width: 768px) 40vw, 80vw" className="max-h-[300px] max-w-[460px]" />
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
-        <div className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-ink text-lg text-ink-dark opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:opacity-100 -rotate-45 scale-75 group-hover:scale-100">
+
+        {/* The work itself, revealed on hover */}
+        <div className={`absolute inset-0 scale-110 opacity-0 transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-100 group-hover:opacity-100 ${contain ? "bg-[#141416] p-8" : ""}`}>
+          <div className="relative h-full w-full">
+            <Image src={p.cover} alt={p.title} fill sizes="(min-width: 768px) 50vw, 100vw" className={contain ? "object-contain" : "object-cover"} />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+        </div>
+
+        <div className="absolute right-4 top-4 z-10 flex h-11 w-11 scale-75 -rotate-45 items-center justify-center rounded-full bg-ink text-lg text-ink-dark opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100">
           ↗
         </div>
-        <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6">
+        <div className={`absolute bottom-0 left-0 z-10 p-5 transition-colors duration-500 md:p-6 ${wide ? "right-[50%]" : "right-0"} ${dark ? "text-ink-dark group-hover:text-white" : "text-white"}`}>
           <div className="mb-2 flex flex-wrap gap-1.5">
             {p.categories.map((c) => (
-              <span key={c} className="rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-semibold text-white backdrop-blur-md">
+              <span
+                key={c}
+                className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold transition-colors duration-500 ${
+                  dark ? "bg-black/10 group-hover:bg-white/15" : "bg-white/15"
+                }`}
+              >
                 {c}
               </span>
             ))}
           </div>
-          <h3 className="font-display text-2xl font-bold leading-tight tracking-tight text-white md:text-[1.7rem]">{p.title}</h3>
-          <p className="mt-1 flex items-center gap-2 text-sm text-white/70">
-            <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
+          <h3 className="font-display text-2xl font-bold leading-tight tracking-tight md:text-[1.7rem]">{p.title}</h3>
+          <p className="mt-1 text-sm opacity-70">
             {p.client} · {p.items.length} {p.items.length === 1 ? "piece" : "pieces"}
           </p>
         </div>

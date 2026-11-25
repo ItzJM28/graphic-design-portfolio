@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Project } from "@/data/projects";
+import { ProjectLogo } from "./Logos";
 
 const slide = {
   enter: (d: number) => ({ x: d >= 0 ? 80 : -80, opacity: 0 }),
@@ -131,6 +132,15 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
             </button>
           </div>
           <div className="hidden md:block">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className="mb-5 flex h-36 items-center justify-center rounded-2xl p-5"
+              style={{ background: project.logoBg }}
+            >
+              <ProjectLogo project={project} sizes="300px" />
+            </motion.div>
             <h3 className="font-display text-3xl font-bold leading-tight tracking-tight">{project.title}</h3>
             <p className="mt-1 text-sm text-ink-muted">{project.client}</p>
             <p className="mt-4 text-sm leading-relaxed text-ink/85">{project.description}</p>
