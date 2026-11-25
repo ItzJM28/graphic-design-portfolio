@@ -22,6 +22,8 @@ export type MediaItem = {
   name: string;
   w?: number;
   h?: number;
+  poster?: string; // still frame for video thumbnails
+  motion?: boolean; // generated logo animation (not counted as a portfolio piece)
 };
 
 export type Project = {
@@ -235,6 +237,12 @@ const meta: Meta[] = [
 
 type ManifestGroup = { folder: string; slug: string; items: MediaItem[] };
 
+/** Projects that have a rendered logo motion clip in public/motion (Alon Brew has its own). */
+const motionSlugs = new Set([
+  "bugtongs", "natures-blend", "nom", "hiraya", "pamper-labs", "print-designs",
+  "promotional-posters", "tshirt-designs", "personal-designed-logos", "pior", "livable",
+]);
+
 export const projects: Project[] = meta.map((m) => {
   const group = (manifest as ManifestGroup[]).find((g) => g.slug === m.slug);
   if (!group) throw new Error(`Missing manifest group ${m.slug}`);
@@ -250,9 +258,20 @@ export const projects: Project[] = meta.map((m) => {
     // put cover first
     items = [...items].sort((a, b) => Number(file(b.src) === m.cover) - Number(file(a.src) === m.cover));
   }
+  // Logo motion clip (public/motion/<slug>.mp4) goes right after the cover
+  if (motionSlugs.has(m.slug)) {
+    items = [
+      items[0],
+      { type: "video", src: `/motion/${m.slug}.mp4`, poster: `/motion/${m.slug}.webp`, name: "Logo motion", motion: true },
+      ...items.slice(1),
+    ];
+  }
   const { order: _order, ...rest } = m;
   void _order;
   return { ...rest, cover: `/work/${m.slug}/${m.cover}`, items };
 });
 
-export const totalPieces = projects.reduce((n, p) => n + p.items.length, 0);
+/** Number of original pieces in a project (excludes generated logo motion clips). */
+export const pieceCount = (p: Project) => p.items.filter((i) => !i.motion).length;
+
+export const totalPieces = projects.reduce((n, p) => n + pieceCount(p), 0);

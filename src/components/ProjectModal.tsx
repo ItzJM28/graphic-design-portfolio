@@ -92,7 +92,7 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
             >
               <div className="relative h-full w-full">
                 {item.type === "video" ? (
-                  <video src={item.src} autoPlay muted loop playsInline controls className="h-full w-full object-contain" />
+                  <video src={item.src} poster={item.poster} autoPlay muted loop playsInline controls className="h-full w-full object-contain" />
                 ) : (
                   <Image src={item.src} alt={`${project.title} — ${index + 1}`} fill sizes="(min-width: 768px) 70vw, 100vw" className="pointer-events-none select-none object-contain" priority />
                 )}
@@ -163,7 +163,10 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
                 aria-label={`Show item ${i + 1}`}
               >
                 {it.type === "video" ? (
-                  <span className="flex h-full w-full items-center justify-center text-xs font-bold">▶ Video</span>
+                  <>
+                    {it.poster && <Image src={it.poster} alt="" fill sizes="120px" className="object-cover" />}
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/35 text-xs font-bold text-white">▶ Motion</span>
+                  </>
                 ) : (
                   <Image src={it.src} alt="" fill sizes="120px" className="object-cover" />
                 )}

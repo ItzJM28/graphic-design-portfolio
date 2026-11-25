@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { useState, type MouseEvent } from "react";
-import { categories, projects, type Category, type Project } from "@/data/projects";
+import { categories, pieceCount, projects, type Category, type Project } from "@/data/projects";
 import { SectionHeading } from "./Tile";
 import { ProjectModal } from "./ProjectModal";
 import { ProjectLogo } from "./Logos";
@@ -81,7 +81,7 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
           </div>
           <h3 className="font-display text-2xl font-bold leading-tight tracking-tight md:text-[1.7rem]">{p.title}</h3>
           <p className="mt-1 text-sm opacity-70">
-            {p.client} · {p.items.length} {p.items.length === 1 ? "piece" : "pieces"}
+            {p.client} · {pieceCount(p)} {pieceCount(p) === 1 ? "piece" : "pieces"}
           </p>
         </div>
       </button>

@@ -21,15 +21,35 @@ const palette = [
 ];
 const barHeights = [46, 62, 54, 78, 92, 70, 84, 100, 66, 74];
 
-type Slide = { type: "image" | "video"; src: string; label: string; pos?: string; seconds: number };
+/** bg: when set, the slide is shown whole (contain) on that color instead of cropped. */
+type Slide = { type: "image" | "video"; src: string; label: string; pos?: string; bg?: string; seconds: number };
+
+const motionClip = (slug: string, label: string, bg: string): Slide => ({
+  type: "video",
+  src: `/motion/${slug}.mp4`,
+  label,
+  bg,
+  seconds: 4.5,
+});
 
 const showcase: Slide[] = [
   { type: "image", src: "/featured/bugtongs-promo.webp", label: "Bugtong's", seconds: 3.4 },
+  motionClip("bugtongs", "Bugtong's", "#121212"),
   { type: "video", src: "/work/alon-brew/alonbrewlogoanim.mp4", label: "Alon Brew", seconds: 6 },
   { type: "image", src: "/featured/nom-wings.webp", label: "NOM", pos: "62% 50%", seconds: 3.4 },
+  motionClip("nom", "NOM", "#ff6665"),
   { type: "image", src: "/featured/hiraya-buy1get1.webp", label: "Hiraya's Grill", seconds: 3.4 },
+  motionClip("hiraya", "Hiraya's Grill", "#111111"),
   { type: "image", src: "/featured/natures-blend-bags.webp", label: "Nature's Blend", pos: "60% 60%", seconds: 3.4 },
+  motionClip("natures-blend", "Nature's Blend", "#183a31"),
+  motionClip("pamper-labs", "Pamper Lab", "#2a0d4a"),
   { type: "image", src: "/featured/nom-sign.webp", label: "NOM", pos: "46% 50%", seconds: 3.4 },
+  motionClip("pior", "PIOR", "#ffffff"),
+  motionClip("personal-designed-logos", "CatCam", "#111111"),
+  motionClip("promotional-posters", "Posters", "#54478c"),
+  motionClip("tshirt-designs", "Streetwear", "#16203a"),
+  motionClip("print-designs", "Editorial", "#ffffff"),
+  motionClip("livable", "Livable", "#e8893a"),
 ];
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -61,13 +81,22 @@ function Slideshow() {
         <motion.div
           key={slide.src}
           className="absolute inset-0"
+          style={{ background: slide.bg }}
           initial={{ opacity: 0, scale: 1.12 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
           {slide.type === "video" ? (
-            <video src={slide.src} autoPlay muted playsInline className="h-full w-full object-cover" style={{ objectPosition: slide.pos }} />
+            <video
+              src={slide.src}
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              className={`h-full w-full ${slide.bg ? "object-contain" : "object-cover"}`}
+              style={{ objectPosition: slide.pos }}
+            />
           ) : (
             <Image src={slide.src} alt={`${slide.label} design`} fill sizes="(min-width: 768px) 25vw, 50vw" className="object-cover" style={{ objectPosition: slide.pos }} />
           )}
