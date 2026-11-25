@@ -4,7 +4,6 @@ import type { Project } from "@/data/projects";
 /* Recreated vector marks for projects that have no standalone logo file. */
 
 const marcellus = { fontFamily: "var(--font-marcellus), serif" };
-const script = { fontFamily: "var(--font-yellowtail), cursive" };
 const bebas = { fontFamily: "var(--font-bebas), sans-serif" };
 const display = { fontFamily: "var(--font-bricolage), sans-serif" };
 const body = { fontFamily: "var(--font-manrope), sans-serif" };
@@ -42,46 +41,6 @@ function NaturesBlend() {
         <path d="M168 330 C180 326 192 334 200 342" />
         <path d="M232 330 C220 326 208 334 200 342" />
       </g>
-    </svg>
-  );
-}
-
-function PamperLab() {
-  const rungs = [154, 170, 186, 214, 230, 246];
-  return (
-    <svg viewBox="0 0 400 250" role="img" aria-label="Pamper Lab logo" className="h-full w-full">
-      <defs>
-        <linearGradient id="pl-g" x1="0" x2="1">
-          <stop offset="0" stopColor="#ff5fb0" />
-          <stop offset="0.5" stopColor="#b48cff" />
-          <stop offset="1" stopColor="#62d6ff" />
-        </linearGradient>
-        <filter id="pl-glow" x="-20%" y="-40%" width="140%" height="180%">
-          <feGaussianBlur stdDeviation="4" result="b" />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <g transform="rotate(-22 200 60)" filter="url(#pl-glow)">
-        {rungs.map((x) => (
-          <line key={x} x1={x} x2={x} y1="48" y2="72" stroke="url(#pl-g)" strokeWidth="5" strokeLinecap="round" opacity="0.85" />
-        ))}
-        <path d="M140 60 C160 20 180 20 200 60 S240 100 260 60" fill="none" stroke="url(#pl-g)" strokeWidth="11" strokeLinecap="round" />
-        <path d="M140 60 C160 100 180 100 200 60 S240 20 260 60" fill="none" stroke="url(#pl-g)" strokeWidth="11" strokeLinecap="round" />
-      </g>
-      <text x="200" y="172" textAnchor="middle" fill="#ff4fa3" fontSize="78" style={script} filter="url(#pl-glow)">
-        Pamper Lab
-      </text>
-      <text x="200" y="208" textAnchor="middle" fill="#eadcff" fontSize="16" fontWeight="700" letterSpacing="1" style={body}>
-        NAIL, LASH AND BROW
-      </text>
-      <g stroke="#eadcff" strokeWidth="1.5">
-        <line x1="152" x2="178" y1="227" y2="227" />
-        <line x1="222" x2="248" y1="227" y2="227" />
-      </g>
-      <text x="200" y="233" textAnchor="middle" fill="#eadcff" fontSize="16" fontWeight="700" style={body}>BAR</text>
     </svg>
   );
 }
@@ -138,7 +97,6 @@ function Streetwear() {
 
 const vectors: Record<string, () => React.JSX.Element> = {
   "natures-blend": NaturesBlend,
-  "pamper-labs": PamperLab,
   "print-designs": HiddenGems,
   "promotional-posters": Posters,
   "tshirt-designs": Streetwear,

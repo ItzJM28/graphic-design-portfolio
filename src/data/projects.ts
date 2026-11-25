@@ -124,7 +124,7 @@ const meta: Meta[] = [
   },
   {
     slug: "pamper-labs",
-    logo: "pamper-labs",
+    logo: "/logos/pamper-labs.webp",
     logoBg: "#2a0d4a",
     logoInk: "light",
     title: "Pamper Lab",
