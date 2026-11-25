@@ -32,18 +32,14 @@ const motionClip = (slug: string, label: string, bg: string): Slide => ({
   seconds: 4.5,
 });
 
+// Featured shows only animated logos.
 const showcase: Slide[] = [
-  { type: "image", src: "/featured/bugtongs-promo.webp", label: "Bugtong's", seconds: 3.4 },
   motionClip("bugtongs", "Bugtong's", "#121212"),
   { type: "video", src: "/work/alon-brew/alonbrewlogoanim.mp4", label: "Alon Brew", seconds: 6 },
-  { type: "image", src: "/featured/nom-wings.webp", label: "NOM", pos: "62% 50%", seconds: 3.4 },
   motionClip("nom", "NOM", "#ff6665"),
-  { type: "image", src: "/featured/hiraya-buy1get1.webp", label: "Hiraya's Grill", seconds: 3.4 },
   motionClip("hiraya", "Hiraya's Grill", "#111111"),
-  { type: "image", src: "/featured/natures-blend-bags.webp", label: "Nature's Blend", pos: "60% 60%", seconds: 3.4 },
   motionClip("natures-blend", "Nature's Blend", "#183a31"),
   motionClip("pamper-labs", "Pamper Lab", "#2a0d4a"),
-  { type: "image", src: "/featured/nom-sign.webp", label: "NOM", pos: "46% 50%", seconds: 3.4 },
   motionClip("pior", "PIOR", "#ffffff"),
   motionClip("personal-designed-logos", "CatCam", "#111111"),
   motionClip("promotional-posters", "Posters", "#54478c"),
