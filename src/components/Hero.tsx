@@ -21,12 +21,15 @@ const palette = [
 ];
 const barHeights = [46, 62, 54, 78, 92, 70, 84, 100, 66, 74];
 
-const showcase = [
-  "/work/bugtongs/1500kfollowers.webp",
-  "/work/promotional-posters/poster-1.webp",
-  "/work/hiraya/buy1get1.webp",
-  "/work/pamper-labs/opening-soon.webp",
-  "/work/promotional-posters/poster-3.webp",
+type Slide = { type: "image" | "video"; src: string; label: string; pos?: string; seconds: number };
+
+const showcase: Slide[] = [
+  { type: "image", src: "/featured/bugtongs-promo.webp", label: "Bugtong's", seconds: 3.4 },
+  { type: "video", src: "/work/alon-brew/alonbrewlogoanim.mp4", label: "Alon Brew", seconds: 6 },
+  { type: "image", src: "/featured/nom-wings.webp", label: "NOM", pos: "62% 50%", seconds: 3.4 },
+  { type: "image", src: "/featured/hiraya-buy1get1.webp", label: "Hiraya's Grill", seconds: 3.4 },
+  { type: "image", src: "/featured/natures-blend-bags.webp", label: "Nature's Blend", pos: "60% 60%", seconds: 3.4 },
+  { type: "image", src: "/featured/nom-sign.webp", label: "NOM", pos: "46% 50%", seconds: 3.4 },
 ];
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -47,36 +50,59 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 
 function Slideshow() {
   const [i, setI] = useState(0);
+  const slide = showcase[i];
   useEffect(() => {
-    const t = setInterval(() => setI((n) => (n + 1) % showcase.length), 3200);
-    return () => clearInterval(t);
-  }, []);
+    const t = setTimeout(() => setI((n) => (n + 1) % showcase.length), slide.seconds * 1000);
+    return () => clearTimeout(t);
+  }, [slide]);
   return (
     <div className="absolute inset-0">
       <AnimatePresence initial={false}>
         <motion.div
-          key={showcase[i]}
+          key={slide.src}
           className="absolute inset-0"
           initial={{ opacity: 0, scale: 1.12 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Image src={showcase[i]} alt="Featured design" fill sizes="(min-width: 768px) 25vw, 100vw" className="object-cover" />
+          {slide.type === "video" ? (
+            <video src={slide.src} autoPlay muted playsInline className="h-full w-full object-cover" style={{ objectPosition: slide.pos }} />
+          ) : (
+            <Image src={slide.src} alt={`${slide.label} design`} fill sizes="(min-width: 768px) 25vw, 50vw" className="object-cover" style={{ objectPosition: slide.pos }} />
+          )}
         </motion.div>
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={slide.label}
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 6 }}
+          transition={{ duration: 0.3 }}
+          className="absolute left-4 top-4 z-10 whitespace-nowrap rounded-full bg-black/55 px-3 py-1 text-xs font-semibold backdrop-blur"
+        >
+          Featured · {slide.label}
+        </motion.span>
       </AnimatePresence>
       <div className="absolute inset-x-4 bottom-4 z-10 flex gap-1.5">
         {showcase.map((s, n) => (
-          <span key={s} className="h-1 flex-1 overflow-hidden rounded-full bg-white/25">
+          <button
+            key={s.src}
+            type="button"
+            onClick={() => setI(n)}
+            aria-label={`Show ${s.label}`}
+            className="h-1 flex-1 overflow-hidden rounded-full bg-white/25"
+          >
             {n === i && (
               <motion.span
                 className="block h-full bg-white"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 3.2, ease: "linear" }}
+                transition={{ duration: s.seconds, ease: "linear" }}
               />
             )}
-          </span>
+          </button>
         ))}
       </div>
     </div>
@@ -147,9 +173,6 @@ export function Hero() {
         {/* Featured slideshow */}
         <Tile index={2} className="row-span-2 min-h-[380px] bg-surface">
           <Slideshow />
-          <span className="absolute left-4 top-4 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold backdrop-blur">
-            Featured
-          </span>
         </Tile>
 
         {/* Pieces counter */}

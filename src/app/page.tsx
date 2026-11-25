@@ -22,7 +22,7 @@ export default function Home() {
         <Marquee
           reverse
           className="border-y border-line text-ink-muted"
-          items={["Bugtong's", "Alon Brew", "Hiraya's Grill", "Nature's Blend", "NOM", "Pamper Lab", "PIOR", "Livable"]}
+          items={["Logo Design", "Typography", "Color Theory", "Layout & Composition", "Photo Manipulation", "Mockups", "Visual Storytelling", "Print Production"]}
         />
         <About />
         <Contact />
