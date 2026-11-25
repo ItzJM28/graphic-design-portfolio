@@ -1,0 +1,612 @@
+[
+  {
+    "folder": "Alon Brew",
+    "slug": "alon-brew",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/alon-brew/1.webp",
+        "name": "1.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/3.webp",
+        "name": "3.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/4.webp",
+        "name": "4.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/5.webp",
+        "name": "5.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/8.webp",
+        "name": "8.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "video",
+        "src": "/work/alon-brew/alonbrewlogoanim.mp4",
+        "name": "alonbrewlogoanim.mp4",
+        "size": 542229
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/frame-1.webp",
+        "name": "frame-1.png",
+        "w": 764,
+        "h": 860
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/frame-2.webp",
+        "name": "frame-2.png",
+        "w": 627,
+        "h": 1058
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/group-19.webp",
+        "name": "group-19.png",
+        "w": 1178,
+        "h": 1189
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/group-4.webp",
+        "name": "group-4.png",
+        "w": 540,
+        "h": 536
+      },
+      {
+        "type": "image",
+        "src": "/work/alon-brew/test3-1.webp",
+        "name": "test3-1.png",
+        "w": 1338,
+        "h": 1002
+      }
+    ]
+  },
+  {
+    "folder": "Bugtongs",
+    "slug": "bugtongs",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/bugtongs/1500kfollowers.webp",
+        "name": "1500kFollowers.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/5-off-tarp.webp",
+        "name": "5_ off tarp.png",
+        "w": 1800,
+        "h": 1013
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/95unli.webp",
+        "name": "95Unli.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/bangus.webp",
+        "name": "Bangus.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/bugtongsbuyonetakeone.webp",
+        "name": "BugtongsBuyOneTakeOne.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/buy1get1-2.webp",
+        "name": "Buy1Get1-2.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/buy1get1.webp",
+        "name": "Buy1Get1.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/buy1get12.webp",
+        "name": "Buy1Get12.png",
+        "w": 1080,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/calling-card-1.webp",
+        "name": "Calling Card 1.png",
+        "w": 1800,
+        "h": 1033
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/calling-card-2.webp",
+        "name": "Calling Card 2.png",
+        "w": 1800,
+        "h": 1033
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/coffee.webp",
+        "name": "Coffee.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/copy-of-slide-16-9-2.webp",
+        "name": "Copy of Slide 16_9 - 2.png",
+        "w": 1800,
+        "h": 656
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/cover-3.webp",
+        "name": "Cover (3).png",
+        "w": 1800,
+        "h": 1013
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/cover.webp",
+        "name": "Cover.png",
+        "w": 640,
+        "h": 360
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/final-banner.webp",
+        "name": "Final Banner.png",
+        "w": 1800,
+        "h": 383
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/final-cover.webp",
+        "name": "Final Cover.png",
+        "w": 640,
+        "h": 360
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/final-poster.webp",
+        "name": "Final Poster.png",
+        "w": 1080,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/frame-31.webp",
+        "name": "Frame 31.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/frame-33-3.webp",
+        "name": "Frame 33 (3).png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/frame-39.webp",
+        "name": "Frame 39.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/grillingsoon.webp",
+        "name": "GrillingSoon.png",
+        "w": 1222,
+        "h": 1222
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/grillingsoon2.webp",
+        "name": "GrillingSoon2.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/mother-s-day-giveaway.webp",
+        "name": "Mother_s Day Giveaway.png",
+        "w": 1080,
+        "h": 1350
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/profile.webp",
+        "name": "Profile.png",
+        "w": 1080,
+        "h": 1080
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/takenna.webp",
+        "name": "TakenNa.png",
+        "w": 1800,
+        "h": 483
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/takenna-2.webp",
+        "name": "TakenNa_2.png",
+        "w": 1800,
+        "h": 1272
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/tshirt.webp",
+        "name": "Tshirt.png",
+        "w": 1800,
+        "h": 1200
+      },
+      {
+        "type": "image",
+        "src": "/work/bugtongs/sisig.webp",
+        "name": "sisig.png",
+        "w": 1800,
+        "h": 1800
+      }
+    ]
+  },
+  {
+    "folder": "Hiraya",
+    "slug": "hiraya",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/hiraya/barkadafamilymeal.webp",
+        "name": "BARKADAFAMILYMEAL.png",
+        "w": 595,
+        "h": 842
+      },
+      {
+        "type": "image",
+        "src": "/work/hiraya/buy1get1.webp",
+        "name": "Buy1Get1.png",
+        "w": 1772,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/hiraya/discountpromo.webp",
+        "name": "DiscountPromo.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/hiraya/facebook-cover-1.webp",
+        "name": "Facebook Cover (1).png",
+        "w": 1800,
+        "h": 790
+      },
+      {
+        "type": "image",
+        "src": "/work/hiraya/hiaray2-1.webp",
+        "name": "Hiaray2 (1).png",
+        "w": 1800,
+        "h": 879
+      },
+      {
+        "type": "image",
+        "src": "/work/hiraya/hiraya.webp",
+        "name": "Hiraya.png",
+        "w": 1800,
+        "h": 1800
+      }
+    ]
+  },
+  {
+    "folder": "Livable",
+    "slug": "livable",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/livable/livable.webp",
+        "name": "Livable.png",
+        "w": 1270,
+        "h": 304
+      },
+      {
+        "type": "image",
+        "src": "/work/livable/vector.webp",
+        "name": "Vector.png",
+        "w": 454,
+        "h": 495
+      }
+    ]
+  },
+  {
+    "folder": "NOM",
+    "slug": "nom",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/nom/frame-5.webp",
+        "name": "Frame 5.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/nom/nom-2.webp",
+        "name": "NOM 2.png",
+        "w": 735,
+        "h": 667
+      },
+      {
+        "type": "image",
+        "src": "/work/nom/rectangle-21.webp",
+        "name": "Rectangle 21.png",
+        "w": 1149,
+        "h": 649
+      },
+      {
+        "type": "image",
+        "src": "/work/nom/rectangle-22.webp",
+        "name": "Rectangle 22.png",
+        "w": 1058,
+        "h": 706
+      },
+      {
+        "type": "image",
+        "src": "/work/nom/rectangle-23.webp",
+        "name": "Rectangle 23.png",
+        "w": 1224,
+        "h": 806
+      }
+    ]
+  },
+  {
+    "folder": "Nature's Blend",
+    "slug": "natures-blend",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/natures-blend/logo.webp",
+        "name": "LOGO.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/natures-blend/concept.webp",
+        "name": "concept.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/natures-blend/final-logo.webp",
+        "name": "final-logo.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/natures-blend/logo-variations.webp",
+        "name": "logo-variations.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/natures-blend/mockups-1.webp",
+        "name": "mockups-1.png",
+        "w": 1800,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/natures-blend/mockups.webp",
+        "name": "mockups.png",
+        "w": 1800,
+        "h": 1800
+      }
+    ]
+  },
+  {
+    "folder": "PIOR",
+    "slug": "pior",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/pior/frame-5.webp",
+        "name": "Frame 5.png",
+        "w": 1800,
+        "h": 901
+      }
+    ]
+  },
+  {
+    "folder": "Pamper Labs",
+    "slug": "pamper-labs",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/pamper-labs/opening-soon.webp",
+        "name": "Opening Soon.png",
+        "w": 1440,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/pamper-labs/promotionad.webp",
+        "name": "PromotionAd.png",
+        "w": 1440,
+        "h": 1800
+      }
+    ]
+  },
+  {
+    "folder": "Personal Designed Logos",
+    "slug": "personal-designed-logos",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/personal-designed-logos/group-1.webp",
+        "name": "Group 1.png",
+        "w": 1800,
+        "h": 732
+      },
+      {
+        "type": "image",
+        "src": "/work/personal-designed-logos/group-10.webp",
+        "name": "Group 10.png",
+        "w": 1800,
+        "h": 608
+      },
+      {
+        "type": "image",
+        "src": "/work/personal-designed-logos/group-16.webp",
+        "name": "Group 16.png",
+        "w": 1800,
+        "h": 409
+      },
+      {
+        "type": "image",
+        "src": "/work/personal-designed-logos/group-24.webp",
+        "name": "Group 24.png",
+        "w": 1800,
+        "h": 1015
+      }
+    ]
+  },
+  {
+    "folder": "Print Designs",
+    "slug": "print-designs",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/print-designs/frame-9.webp",
+        "name": "Frame 9.png",
+        "w": 1391,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/print-designs/frame.webp",
+        "name": "Frame.png",
+        "w": 1800,
+        "h": 1012
+      },
+      {
+        "type": "image",
+        "src": "/work/print-designs/group-3.webp",
+        "name": "Group 3.png",
+        "w": 1800,
+        "h": 1165
+      },
+      {
+        "type": "image",
+        "src": "/work/print-designs/group-4.webp",
+        "name": "Group 4.png",
+        "w": 1800,
+        "h": 1165
+      },
+      {
+        "type": "image",
+        "src": "/work/print-designs/group-5.webp",
+        "name": "Group 5.png",
+        "w": 1800,
+        "h": 1165
+      },
+      {
+        "type": "image",
+        "src": "/work/print-designs/group-6.webp",
+        "name": "Group 6.png",
+        "w": 1800,
+        "h": 1165
+      }
+    ]
+  },
+  {
+    "folder": "Promotional Posters",
+    "slug": "promotional-posters",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/promotional-posters/frame-1.webp",
+        "name": "Frame 1.png",
+        "w": 1262,
+        "h": 1785
+      },
+      {
+        "type": "image",
+        "src": "/work/promotional-posters/poster-1.webp",
+        "name": "Poster 1.png",
+        "w": 1272,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/promotional-posters/poster-2.webp",
+        "name": "Poster 2.png",
+        "w": 1262,
+        "h": 1785
+      },
+      {
+        "type": "image",
+        "src": "/work/promotional-posters/poster-3.webp",
+        "name": "Poster 3.png",
+        "w": 1272,
+        "h": 1800
+      }
+    ]
+  },
+  {
+    "folder": "Tshirt Designs",
+    "slug": "tshirt-designs",
+    "items": [
+      {
+        "type": "image",
+        "src": "/work/tshirt-designs/back-1.webp",
+        "name": "Back-1.png",
+        "w": 1206,
+        "h": 1800
+      },
+      {
+        "type": "image",
+        "src": "/work/tshirt-designs/back.webp",
+        "name": "Back.png",
+        "w": 1206,
+        "h": 1800
+      }
+    ]
+  }
+]
