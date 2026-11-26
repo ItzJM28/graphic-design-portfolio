@@ -188,31 +188,13 @@ export function Hero() {
           </div>
         </Tile>
 
-        {/* Logo */}
-        <Tile index={1} className="flex items-center justify-center bg-grape p-6">
-          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10" />
-          <div className="absolute -bottom-14 -left-8 h-36 w-36 rounded-full border-[18px] border-white/10 animate-spin-slow" />
-          <Image src="/logo-trim.png" alt="Personal logo" width={120} height={120} className="relative h-24 w-24 animate-float object-contain drop-shadow-2xl md:h-28 md:w-28" />
-        </Tile>
-
-        {/* Featured slideshow */}
-        <Tile index={2} className="row-span-2 min-h-[380px] bg-surface">
+        {/* Featured logo motion — wide so the square clips play large */}
+        <Tile index={1} className="col-span-2 row-span-2 min-h-[360px] bg-surface md:min-h-[420px]">
           <Slideshow />
         </Tile>
 
-        {/* Pieces counter */}
-        <Tile index={3} className="flex flex-col justify-between bg-emerald p-6 text-ink-dark">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] opacity-70">Portfolio</span>
-          <div>
-            <div className="font-display text-6xl font-extrabold leading-none tracking-tight">
-              <Counter to={Math.floor(totalPieces / 5) * 5} suffix="+" />
-            </div>
-            <p className="mt-1 font-semibold">pieces of design work</p>
-          </div>
-        </Tile>
-
         {/* Palette */}
-        <Tile index={4} className="col-span-2 flex flex-col justify-between gap-6 bg-surface p-6 md:p-7">
+        <Tile index={2} className="col-span-2 flex flex-col justify-between gap-6 bg-surface p-6 md:p-7">
           <div className="relative z-10 flex items-start justify-between gap-4">
             <div>
               <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">Color is my language</h3>
@@ -241,29 +223,26 @@ export function Hero() {
           </div>
         </Tile>
 
-        {/* Animated logo video */}
-        <Tile index={5} className="bg-black">
-          <video
-            src="/work/alon-brew/alonbrewlogoanim.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <span className="absolute bottom-4 left-4 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold backdrop-blur">
-            Motion · Alon Brew
-          </span>
+        {/* Logo */}
+        <Tile index={3} className="flex items-center justify-center bg-grape p-6">
+          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10" />
+          <div className="absolute -bottom-14 -left-8 h-36 w-36 animate-spin-slow rounded-full border-[18px] border-white/10" />
+          <Image src="/logo-trim.png" alt="John Martin's personal logo" width={120} height={120} className="relative h-24 w-24 animate-float object-contain drop-shadow-2xl md:h-28 md:w-28" />
         </Tile>
 
-        {/* Brands counter */}
-        <Tile index={6} className="flex flex-col justify-between bg-banana p-6 text-ink-dark">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] opacity-70">Brands &amp; projects</span>
-          <div>
-            <div className="font-display text-6xl font-extrabold leading-none tracking-tight">
+        {/* Stats — pieces and brands in one tile */}
+        <Tile index={4} className="grid grid-rows-2 text-ink-dark">
+          <div className="flex flex-col justify-end bg-emerald p-5">
+            <div className="font-display text-5xl font-extrabold leading-none tracking-tight">
+              <Counter to={Math.floor(totalPieces / 5) * 5} suffix="+" />
+            </div>
+            <p className="mt-1 text-sm font-semibold">pieces of design work</p>
+          </div>
+          <div className="flex flex-col justify-end bg-banana p-5">
+            <div className="font-display text-5xl font-extrabold leading-none tracking-tight">
               <Counter to={projects.length} />
             </div>
-            <p className="mt-1 font-semibold">from grills to coffee bars</p>
+            <p className="mt-1 text-sm font-semibold">brands &amp; projects</p>
           </div>
         </Tile>
       </div>

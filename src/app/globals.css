@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Phones and tablets: no hover, so content that hover reveals must be shown by default. */
+@custom-variant touch (@media (hover: none));
+
 @theme {
   /* Surfaces — dark gray foundation */
   --color-bg: #1d1d20;

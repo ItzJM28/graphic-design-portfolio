@@ -46,7 +46,7 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
       >
         {/* Brand logo on its own background */}
         <div
-          className={`absolute flex items-center justify-center transition-all ${
+          className={`absolute flex items-center justify-center transition-all touch:hidden ${
             wide ? "inset-y-0 left-[48%] right-0 p-7 pr-8" : "inset-x-0 top-0 bottom-[112px] px-[8%] pt-8"
           }`}
         >
@@ -55,24 +55,29 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: () => void }) {
           </div>
         </div>
 
-        {/* The work itself, revealed on hover */}
-        <div className={`absolute inset-0 scale-110 opacity-0 transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-100 group-hover:opacity-100 ${contain ? "bg-[#141416] p-8" : ""}`}>
+        {/* The work itself: revealed on hover, always shown on touch screens */}
+        <div className={`absolute inset-0 scale-110 opacity-0 transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-100 group-hover:opacity-100 touch:scale-100 touch:opacity-100 ${contain ? "bg-[#141416] p-8" : ""}`}>
           <div className="relative h-full w-full">
-            <Image src={p.cover} alt={p.title} fill sizes="(min-width: 768px) 50vw, 100vw" className={contain ? "object-contain" : "object-cover"} />
+            <Image src={p.cover} alt={`${p.title} — featured work`} fill sizes="(min-width: 768px) 50vw, 100vw" className={contain ? "object-contain" : "object-cover"} />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+        </div>
+
+        {/* Touch screens: small brand badge in place of the large logo */}
+        <div className="absolute left-4 top-4 z-10 hidden h-14 w-14 items-center justify-center rounded-2xl p-2 shadow-lg shadow-black/40 touch:flex" style={{ background: p.logoBg }} aria-hidden="true">
+          <ProjectLogo project={p} sizes="56px" />
         </div>
 
         <div className="absolute right-4 top-4 z-10 flex h-11 w-11 scale-75 -rotate-45 items-center justify-center rounded-full bg-ink text-lg text-ink-dark opacity-0 transition-all duration-500 group-hover:rotate-0 group-hover:scale-100 group-hover:opacity-100">
           ↗
         </div>
-        <div className={`absolute bottom-0 left-0 z-10 p-5 transition-colors duration-500 md:p-6 ${wide ? "right-[50%]" : "right-0"} ${dark ? "text-ink-dark group-hover:text-white" : "text-white"}`}>
+        <div className={`absolute bottom-0 left-0 z-10 p-5 transition-colors duration-500 md:p-6 ${wide ? "right-[50%]" : "right-0"} ${dark ? "text-ink-dark group-hover:text-white touch:text-white" : "text-white"}`}>
           <div className="mb-2 flex flex-wrap gap-1.5">
             {p.categories.map((c) => (
               <span
                 key={c}
                 className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold transition-colors duration-500 ${
-                  dark ? "bg-black/10 group-hover:bg-white/15" : "bg-white/15"
+                  dark ? "bg-black/10 group-hover:bg-white/15 touch:bg-white/15" : "bg-white/15"
                 }`}
               >
                 {c}
