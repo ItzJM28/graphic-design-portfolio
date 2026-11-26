@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import type { MediaItem } from "../data/projects.ts";
-import { deliverables, orderGallery } from "./projectView.ts";
+import { deliverables, indexAfterCollapse, orderGallery } from "./projectView.ts";
 
 const img = (file: string): MediaItem => ({ type: "image", src: `/work/x/${file}`, name: file });
 const motion: MediaItem = { type: "video", src: "/motion/x.mp4", name: "Logo motion", motion: true };
@@ -38,4 +38,13 @@ test("orderGallery ignores unknown highlight names", () => {
   const { top, rest } = orderGallery(items, ["zzz.webp", "b.webp"]);
   assert.equal(top.length + rest.length, items.length);
   assert.deepEqual(top.map(file), ["b.webp"]);
+});
+
+test("collapsing to highlights resets a selection beyond the shorter list", () => {
+  assert.equal(indexAfterCollapse(15, 11), 0);
+  assert.equal(indexAfterCollapse(11, 11), 0);
+});
+
+test("collapsing to highlights keeps a selection that is still listed", () => {
+  assert.equal(indexAfterCollapse(4, 11), 4);
 });

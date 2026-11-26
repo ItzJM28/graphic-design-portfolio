@@ -4,7 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Project } from "@/data/projects";
-import { deliverables, orderGallery } from "@/lib/projectView";
+import { deliverables, indexAfterCollapse, orderGallery } from "@/lib/projectView";
 import { ProjectLogo } from "./Logos";
 
 const slide = {
@@ -42,6 +42,19 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
 
   const go = useCallback((d: number) => setState(([i]) => [(i + d + count) % count, d]), [count]);
 
+  // Latest handlers, read by the mount-only effect below so it never re-runs (re-running would steal focus).
+  const goRef = useRef(go);
+  const closeRef = useRef(onClose);
+  useEffect(() => {
+    goRef.current = go;
+    closeRef.current = onClose;
+  });
+
+  const toggleShowAll = () => {
+    if (showAll) setState(([i]) => [indexAfterCollapse(i, top.length), 0]);
+    setShowAll(!showAll);
+  };
+
   // Lock scroll, keyboard shortcuts, focus trap, and focus return to the card that opened us.
   useEffect(() => {
     const opener = document.activeElement as HTMLElement | null;
@@ -50,9 +63,9 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
     closeBtn.current?.focus({ preventScroll: true });
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      else if (e.key === "ArrowRight") go(1);
-      else if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "Escape") closeRef.current();
+      else if (e.key === "ArrowRight") goRef.current(1);
+      else if (e.key === "ArrowLeft") goRef.current(-1);
       else if (e.key === "Tab" && dialog.current) {
         const nodes = Array.from(dialog.current.querySelectorAll<HTMLElement>(FOCUSABLE));
         if (!nodes.length) return;
@@ -73,7 +86,7 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
       window.removeEventListener("keydown", onKey);
       opener?.focus({ preventScroll: true });
     };
-  }, [go, onClose]);
+  }, []);
 
   useEffect(() => {
     thumbs.current?.querySelector<HTMLElement>(`[data-i="${index}"]`)?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
@@ -224,7 +237,7 @@ function Viewer({ project, onClose }: { project: Project; onClose: () => void })
             {rest.length > 0 && (
               <button
                 type="button"
-                onClick={() => setShowAll((v) => !v)}
+                onClick={toggleShowAll}
                 className="mt-3 w-full rounded-full border border-line px-4 py-2 text-sm font-semibold transition hover:border-ink"
                 aria-expanded={showAll}
               >

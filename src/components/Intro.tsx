@@ -3,42 +3,29 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { shouldPlayIntro } from "@/lib/intro";
 
 const bars = ["#54478c", "#2c699a", "#048ba8", "#0db39e", "#16db93", "#83e377", "#b9e769", "#efea5a", "#f1c453", "#f29e4c"];
 const HOLD_MS = 700;
 
-function sessionStore(): Storage | null {
-  try {
-    return window.sessionStorage;
-  } catch {
-    return null;
-  }
-}
-
-/** Short opening curtain: logo, then palette bars sweep away. Once per browser session. */
+/**
+ * Short opening curtain: logo, then palette bars sweep away. Once per browser session.
+ * Rendered with the page; CSS keeps it hidden unless the pre-paint script (layout.tsx)
+ * set <html data-intro>, so first visits never flash the page and return visits never see it.
+ */
 export function Intro() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let hide: number | undefined;
-    const start = window.setTimeout(() => {
-      if (!shouldPlayIntro(sessionStore(), reduced)) return;
-      setShow(true);
-      hide = window.setTimeout(() => setShow(false), HOLD_MS);
-    }, 0);
-    return () => {
-      window.clearTimeout(start);
-      window.clearTimeout(hide);
-    };
+    const playing = document.documentElement.hasAttribute("data-intro");
+    const t = window.setTimeout(() => setShow(false), playing ? HOLD_MS : 0);
+    return () => window.clearTimeout(t);
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => document.documentElement.removeAttribute("data-intro")}>
       {show && (
         <motion.div
           key="intro"
-          className="pointer-events-none fixed inset-0 z-[70] flex"
+          className="intro-root pointer-events-none fixed inset-0 z-[70] flex"
           exit={{ transition: { duration: 0.9 } }}
         >
           {bars.map((c, i) => (

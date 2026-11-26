@@ -32,3 +32,8 @@ export function orderGallery(items: MediaItem[], highlights?: string[]): { top: 
   const rest = items.filter((i) => !top.includes(i));
   return { top, rest };
 }
+
+/** Selection to keep when the gallery shrinks back to its highlights. */
+export function indexAfterCollapse(index: number, topLength: number): number {
+  return index < topLength ? index : 0;
+}

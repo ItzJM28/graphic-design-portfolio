@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
-/* Phones and tablets: no hover, so content that hover reveals must be shown by default. */
-@custom-variant touch (@media (hover: none));
+/* Phones and tablets: no hover, so content that hover reveals must be shown by default.
+   pointer: coarse also catches Android phones that wrongly report hover support. */
+@custom-variant touch (@media (hover: none), (pointer: coarse));
+
+/* Intro curtain is in the server HTML but only shown when the pre-paint script flags a first visit. */
+html:not([data-intro]) .intro-root {
+  display: none;
+}
 
 @theme {
   /* Surfaces — dark gray foundation */

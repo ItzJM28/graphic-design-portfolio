@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Bricolage_Grotesque, Manrope, Marcellus } from "next/font/google";
 import { site } from "@/data/site";
+import { introPrepaintScript } from "@/lib/intro";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -24,7 +25,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${marcellus.variable} ${bebas.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${marcellus.variable} ${bebas.variable} antialiased`}
+      // The pre-paint script below may add data-intro before React hydrates.
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: introPrepaintScript }} />
+      </head>
       <body className="grain min-h-screen">{children}</body>
     </html>
   );

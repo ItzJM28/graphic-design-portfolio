@@ -36,3 +36,10 @@ test("shouldPlayIntro returns false when storage throws", () => {
   assert.equal(shouldPlayIntro(broken, false), false);
   assert.equal(shouldPlayIntro(null, false), false);
 });
+
+test("shouldPlayIntro source runs on its own as an inline pre-paint script", () => {
+  const standalone = new Function(`return (${shouldPlayIntro.toString()})`)() as typeof shouldPlayIntro;
+  const s = memoryStorage();
+  assert.equal(standalone(s, false), true);
+  assert.equal(standalone(s, false), false);
+});
