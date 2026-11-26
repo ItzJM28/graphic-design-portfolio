@@ -3,15 +3,34 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { shouldPlayIntro } from "@/lib/intro";
 
 const bars = ["#54478c", "#2c699a", "#048ba8", "#0db39e", "#16db93", "#83e377", "#b9e769", "#efea5a", "#f1c453", "#f29e4c"];
+const HOLD_MS = 700;
 
-/** Short opening curtain: logo, then palette bars sweep away. */
+function sessionStore(): Storage | null {
+  try {
+    return window.sessionStorage;
+  } catch {
+    return null;
+  }
+}
+
+/** Short opening curtain: logo, then palette bars sweep away. Once per browser session. */
 export function Intro() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setShow(false), 1100);
-    return () => clearTimeout(t);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let hide: number | undefined;
+    const start = window.setTimeout(() => {
+      if (!shouldPlayIntro(sessionStore(), reduced)) return;
+      setShow(true);
+      hide = window.setTimeout(() => setShow(false), HOLD_MS);
+    }, 0);
+    return () => {
+      window.clearTimeout(start);
+      window.clearTimeout(hide);
+    };
   }, []);
 
   return (
