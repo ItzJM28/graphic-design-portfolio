@@ -13,6 +13,17 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // The old auto-generated Vercel address forwards to the main link.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "graphic-design-portfolio-coral.vercel.app" }],
+        destination: "https://jdcreates.vercel.app/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
