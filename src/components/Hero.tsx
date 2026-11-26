@@ -90,6 +90,7 @@ function Slideshow() {
               muted
               playsInline
               preload="auto"
+              aria-label={`${slide.label} logo animation`}
               className={`h-full w-full ${slide.bg ? "object-contain" : "object-cover"}`}
               style={{ objectPosition: slide.pos }}
             />

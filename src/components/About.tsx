@@ -25,7 +25,7 @@ const steps = [
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 md:py-28">
+    <section id="about" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-16 md:py-24">
       <SectionHeading
         eyebrow="About"
         title={

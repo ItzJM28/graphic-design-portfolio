@@ -56,6 +56,16 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Keyboard focus: always visible, on every link, button and control. */
+:where(a, button, [role="button"], input, video, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-banana);
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 ::selection {
   background: var(--color-banana);
   color: var(--color-ink-dark);

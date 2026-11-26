@@ -100,7 +100,7 @@ export function Work() {
   const shown = filter === "All" ? projects : projects.filter((p) => p.categories.includes(filter));
 
   return (
-    <section id="work" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 md:py-28">
+    <section id="work" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-16 md:py-24">
       <SectionHeading
         eyebrow="Selected work"
         title={

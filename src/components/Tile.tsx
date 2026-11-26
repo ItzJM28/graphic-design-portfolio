@@ -40,7 +40,7 @@ export function SectionHeading({ eyebrow, title, children }: { eyebrow: string; 
     >
       <div>
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-ink-muted">{eyebrow}</p>
-        <h2 className="font-display text-4xl font-bold leading-[0.95] tracking-tight md:text-6xl">{title}</h2>
+        <h2 className="font-display text-[2.1rem] font-bold leading-[0.95] tracking-tight sm:text-4xl md:text-6xl">{title}</h2>
       </div>
       {children}
     </motion.div>
