@@ -40,6 +40,7 @@ export type Project = {
   logoInk: "light" | "dark";
   coverFit?: "cover" | "contain";
   span: string; // tailwind grid span classes (desktop)
+  highlights?: string[]; // file names shown first in the viewer; the rest sit behind "Show all"
   items: MediaItem[];
 };
 
@@ -60,6 +61,18 @@ const meta: Meta[] = [
     accentInk: "dark",
     cover: "grillingsoon2.webp",
     span: "md:col-span-2 md:row-span-2",
+    highlights: [
+      "grillingsoon2.webp",
+      "final-poster.webp",
+      "1500kfollowers.webp",
+      "buy1get1.webp",
+      "95unli.webp",
+      "sisig.webp",
+      "mother-s-day-giveaway.webp",
+      "final-banner.webp",
+      "calling-card-1.webp",
+      "tshirt.webp",
+    ],
   },
   {
     slug: "alon-brew",
